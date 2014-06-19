@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/jr/x/thesis"
+			"path": "/home/jr/x/thesis",
+			"file_exclude_patterns": ["*.html", "*.sublime*"]
 		}
 	]
 }

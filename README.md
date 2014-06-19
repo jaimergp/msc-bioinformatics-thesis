@@ -1,19 +1,22 @@
-GAUDI Table of Contents
-=======================
+GAUDI: Genetic Algorithms for Unified Docking Inference
+=======================================================
 
 *By Jaime Rodríguez-Guerra*
 
 ## 1. Introduction
-- Docking and molecular design: finding the missing middle ground
+- Enzymes and metalloenzymes
 - Current docking approaches have their limitations
-    - Metals are only available if the are located protein, but can't be part of the ligand. This is an intrinsic limitation of the usual energetic approach, which is based on force fields optimized for proteins and small organic compounds
+    - Metal calculations are only available if the are located in the protein; ie, they can't be part of the ligand. This is an intrinsic limitation of the usual energetic approach, which is based on force fields optimized for proteins and small organic compounds
     - Covalent docking is a rare feature, generally lowly parametrized
+- Current molecular design strategies and software
+- Docking and molecular design: finding the missing middle ground
 
 ## 2. The GAUDI suite
 - The concept behind GAUDI
     - How we coined such an awesome name
     - Based on a genetic algorithm based that features multi-objective optimization: NSGA-II
     - The force-field-less approach avoids metal limitations: HYDE derived functions
+        - ... but we can't ignore the fact that force fields are necessary in some cases -> custom frcmods [lur]
     - A modular design that allows customized objectives
     - Explosively explored geometrical space: conformational, biological and chemical strategies
 - Decisions made during the implementation
@@ -28,7 +31,7 @@ GAUDI Table of Contents
         - Formal definition of the chosen genes
 - Programmatic details
     - Input files: YAML syntax
-    - The loader: base.py
+    - The loader: base.py (via Chimera)
     - GaudiView: resolving the Pareto Front with visual feedback
 
 ## 3. Case study I: Hemocyanin
