@@ -1,5 +1,5 @@
-GAUDI: Genetic Algorithms for Unified Docking Inference
-=======================================================
+GAUDI: Genetic Algorithms for Universal Design Inference
+========================================================
 
 *By Jaime Rodríguez-Guerra*
 
