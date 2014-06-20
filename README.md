@@ -4,12 +4,12 @@ GAUDI: Genetic Algorithms for Unified Docking Inference
 *By Jaime Rodríguez-Guerra*
 
 ## 1. Introduction
-- Enzymes and metalloenzymes
+- Molecular design and docking: finding the missing middle ground
 - Current docking approaches have their limitations
     - Metal calculations are only available if the are located in the protein; ie, they can't be part of the ligand. This is an intrinsic limitation of the usual energetic approach, which is based on force fields optimized for proteins and small organic compounds
     - Covalent docking is a rare feature, generally lowly parametrized
 - Current molecular design strategies and software
-- Docking and molecular design: finding the missing middle ground
+
 
 ## 2. The GAUDI suite
 - The concept behind GAUDI
@@ -37,6 +37,7 @@ GAUDI: Genetic Algorithms for Unified Docking Inference
 ## 3. Case study I: Hemocyanin
 - Background
     - Bridging organometallic chemistry and biomolecules
+        - Enzymes and organometallics
         - Metallodrugs, artificial enzymes...
     - Streptavidin technology
         - Based on Victor Ph.D: different approaches for artificial metalloenzymes
