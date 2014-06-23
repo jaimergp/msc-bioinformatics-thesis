@@ -1,5 +1,5 @@
-GAUDI: Genetic Algorithms for Unified Design Inference
-=======================================================
+GAUDI: Genetic Algorithms for Universal Design Inference
+========================================================
 
 *By Jaime Rodríguez-Guerra*
 
@@ -7,7 +7,6 @@ GAUDI: Genetic Algorithms for Unified Design Inference
 - Molecular Design vs Docking: finding the missing middle ground
 - Current molecular design strategies and software
     - Available software and strategies in use
-    - 
 - Current docking approaches have their limitations
     - Metal calculations are only available if the are located in the protein; ie, they can't be part of the ligand. This is an intrinsic limitation of the usual energetic approach, which is based on force fields optimized for proteins and small organic compounds
     - Covalent docking is a rare feature, generally lowly parametrized
