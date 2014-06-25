@@ -1,3 +1,13 @@
+.. role:: cite
+
+.. role:: citein
+
+.. raw:: latex
+
+    \providecommand*\DUrolecite[1]{\citep{#1}}
+
+    \providecommand*\DUrolecitein[1]{\citet{#1}}
+
 ==========
 Chapter 02
 ==========
@@ -18,7 +28,7 @@ Given a customizable list of objectives, GAUDI will optimize the given compounds
 
 1.1. Genetic exploration with multi-objective capabilities
 ----------------------------------------------------------
-As the first two characters in the name suggest, GAUDI uses a genetic algorithm (GA) to explore the search space. Unlike programs like GOLD, which use a single-objective approach, GAUDI relies on the robust NSGA-II algorithm to provide full multi-objective exploration. All the objectives are optimized simultaneously, generating what is known as a *non-dominated Pareto Front*. This means that, by definition, there is not a single, top-score, undoubtedly-winner solution. 
+GAUDI relies on the robust NSGA-II algorithm to provide full multi-objective exploration. All the objectives are optimized simultaneously, generating what is known as a *non-dominated Pareto Front*. This means that, by definition, there is not a single, top-score, undoubtedly-winner solution. 
 
 Instead, a set of different possible structures is proposed, leaving the final decision up to the researcher. One may think that this further complicates the problem, rather than helping solve it, but there's no reason to believe this is a complex task. In fact, the scientist is given full control over all the possible solutions and, thanks to the accompanying GaudiView GUI tool, he or she can visually inspect the whole set through a straight-forward process. It simply consists of filtering the solutions with an individual cut-off for each objective and then sorting the results by any desired field.
 
@@ -42,16 +52,115 @@ The ligand flexibility is also configurable. Instead of letting choose between *
 ------------------------------------
 Artificial systems often take advantage of organometallic groups to produce new chemical reactions in a very precise chemospecific context. Because of the presence of those unparametrized metal ions, the commonly applied forcefields are rendered useless. Since quantum mechanics are still a long way of being used in screening essays, energetic terms are inevitably left out of scope.
 
-To help palliate this issue, GAUDI proposes two workarounds. The first one exploits the multi-objective capabilities and provides several modules that try to resemble the forcefield interactions. As of now, GAUDI supports hydrogen bonds discovery, steric clashes  and hydrophobic patches detection, and solvent accessible and excluded surfaces calculations (via MSMS). These four forces are usually enough to guide the exploration in energetic terms. 
+To help palliate this issue, GAUDI proposes two workarounds. The first one exploits the multi-objective capabilities and provides several modules that try to resemble the forcefield interactions. As of now, GAUDI supports hydrogen bonds discovery, steric clashes  and hydrophobic patches detection, and solvent accessible and excluded surface areas calculations. These four forces are usually enough to guide the exploration in energetic terms. 
 
 With this simple approach, metals can be happily part of both the protein and the ligand, overcoming one of the main limitations found in most of docking programs. In fact, nothing prevents us from using a metal ion as a ligand and optimize the surrounding rotamers to find a suitable coordination geometry, as it will be discussed in chapter 4.
 
-2. Decisions made during the implementation
-===========================================
+2. The concept behind GAUDI
+===========================
+
+2.1. The strategy: Genetic algorithms and multi-objective optimization
+----------------------------------------------------------------------
+
+Most real-life optimization problems comprise several (usually conflicting) objectives, but they tend to focus on just one of them, describing the other ones as restraints. For example, given a cone, one would want to minimize both their total surface and the lateral surface. A first approach would try to fix the total surface and then find the smallest lateral surface, or the other way around. At any case, both strategies wouldn't consider the wide variety of intermediate solutions :cite:`Coello2001`.
+
+Molecular design problems belong to this kind of problems. Most of the existent approaches consist of an energy minimization guided by a set of user-provided restraints. However, this strategy may be leaving a lot of the possible solutions out of scope. Why would we want to renounce to any chances of finding the right molecular construction that will solve our problem?
+
+*!# Place cone analogy picture here*
+
+Having multiple objectives implies that the concept of a single "optimum" solution is no longer valid. Instead, multi-objective optimization algorithms usually propose a set of good *trade-offs* between the studied variables :cite:`Coello2001`. This idea is known as *Pareto optimality*, as enunciated by Wilfredo Pareto in his studies of income distribution.
+
+Given a set of candidate solutions, a Pareto improvement is a change that can make at least one solution better off, without worsening the situation of the other candidate solutions. When no further Pareto improvements can be applied on the set, that set is said to be *Pareto optimal*. The so-called *Pareto front* is the set of all the Pareto optimal solutions, and, in principle, all of them are good answers to the problem. With n dimensions or objectives, the Pareto front can be depicted as an hypersurface that hosts the optimal solutions from the hypervolume.
+
+Finding the true Pareto front can be difficult, but it can be approximated by a rich set of of non-dominated solutions. A solution ``a`` is set to dominate solution ``b`` if it solves at least one of the objectives better than ``b``, without losing to ``b`` in any of the remaining objectives. In words, ``a`` dominates ``b`` if it makes for a better answer to the problem.
+
+As using Pareto optimality criteria usually means working with multiple solutions, it makes sense to use exploration algorithms that can deal with several candidate solutions at once. One of the most common choices are genetic algorithms (GA). GAs are part of evolutionary algorithms, which, as their name states, are heavily inspired by Darwin's evolution theory. In fact, they take a lot of the nomenclature from it. For example, a candidate solution is called *individual*, whose terms, variables or parameters are named *genes* or *chromosomes*. The base idea is to expose the candidate solutions to an evolutionary simulation, in which the fitness of the individuals is determined by an evaluation function that runs the optimization process. 
+
+A simple GA starts by generating a random set of *individuals*, the so-called initial *population*. Then, that population is exposed to a series of evolutionary operators, such as gene mutation, chromosome recombination or, in some approaches, migration. As a result, a new set of individuals is produced by the parent population. Some of them will be *fitter* than their preceding counterparts, some of them not. That's why all of them are tested by the evaluation function, which will return their *fitness* in the form of a score. Only the fittest individuals will be allowed to continue in the solutions pool or, in biological terms, *selected* to take part in the next *generation*.
+
+After a few generations, the population will have evolved towards a reasonable set of solutions that approximate the Pareto optimal front. As the number of objectives increases, it becomes harder to accurately reconstruct the true Pareto front. Furthermore, it can consist of hundreds of solutions. To determine which one he or she is really looking for, some filtering must be applied -- after all, only a section of the hypersurface might be necessary. In this matter, GAUDI includes a visual tool to help explore the Pareto Front and aid in the solution (or solutions) search. 
+
+2.2 Language and development environment choices
+------------------------------------------------
+GAUDI relies on two main projects to achieve its functionality, UCSF Chimera :cite:`Chimera` and DEAP :cite:`Deap`, both written in Python. 
+
+.. image:: /home/jr/x/thesis/contents/fig/python.png
+    :height: 200px
+
+Python is a high-level scripting language that allows rapid prototyping. It provides object-oriented programming capabilities but does not compel you to use them. This allows the beginner programmer to combine procedural and OOP styles without any problems, and GAUDI takes advantage of it: the simpler modules are just a collection of related functions, while the most complex ones fully rely on Python classes and objects.
+
+Thus, Python is usually regarded as one of the easiest languages to learn. Furthermore, its compulsory indentation syntax enforces code readability. Since Chimera and DEAP are both open-source, this former characteristic has helped understand a lot of the code patterns that happen behind the scenes of a molecular visualization tool and an evolutionary programming framework, respectively.
 
 |
+
+.. image:: /home/jr/x/thesis/contents/fig/chimera.png    
+.. image:: /home/jr/x/thesis/contents/fig/titleChimera.png
+
+UCSF Chimera is developed by the Resource for Biocomputing, Visualization, and Informatics, in the University of California, San Francisco (supported by NIGMS P41-GM103311). It is defined by its authors as *a highly extensible program for interactive visualization and analysis of molecular structures and related data, including density maps, supramolecular assemblies, sequence alignments, docking results, trajectories, and conformational ensembles*. UCSF Chimera includes a lot of Python packages that behave as *plugins* that extend its base functionality. Besides providing GAUDI with a robust visualization tool and a three-dimensional canvas, some of those plugins have been been incorporated into the GAUDI core, such as the H Bond discovery utility or the clashes and contacts detector. 
+
+|
+
+.. figure:: /home/jr/x/thesis/contents/fig/deap.png
+    :height: 200px
+
+However, UCSF Chimera does not carry a built-in evolutionary algorithm, that's why an additional package was needed. DEAP stands for Distributed Evolutionary Algorithms in Python and, in words from its authors, is *a novel evolutionary computation framework for rapid prototyping and testing of ideas that seeks to make algorithms explicit and data structures transparent*. It provides GAUDI with the main GA engine, whose high customizability has allowed to implement very complex data structures, as required by a molecular design problem. Its transparent approach, as opposed to the majority of the other available evolutionary frameworks, has allowed us to design custom individuals that can confront the design challenge with agility. A typical GAUDI individual includes information about the building blocks and the resultant molecule, its torsion angles, the protein cavity chemical environment or the Cartesian transformation matrices, among others. However, since some GAUDI essays do not need torsion angles or rotamer changes, the GA individuals must be dynamical and only include what is needed in each case, and DEAP has proved to be invaluable in that matter.
 
 3. Programmatic details
 =======================
 
 *Potentially, this can end up being an annex*
+
+3.1. Hydrogen bonds discovery
+-----------------------------
+
+Possible hydrogen bonds are calculated with the built-in Chimera extension ``FindHBonds``, which in turn is based on the studies by :citein:`Mills1996`. Mills et al surveyed the Cambridge Structural Database to derive real-life information about the distances, angles and atoms implied in ligand-receptor interaction. The implementation in Chimera allows to specify a tolerance threshold for both angle and distance, relaxing the geometrical constraints. By default, these have been set to 20 degrees and 0.4 Angstrom, respectively. 
+
+In the current implementation, it only serves as a qualitative indicator of how many hydrogen bonds could be formed in the current state. Also, a set of *preferred* H-bond-forming atoms can be specified in the input. If the user decides so, it will account for an extra objective that will be maximized. This allows to use the existent literature and knowledge on the system to perform some prioritization on the protein atoms that could be implied in forming a hydrogen bond.
+
+3.2. Clashes and contacts detection
+-----------------------------------
+
+Both types of interactions are calculated with the same built-in Chimera extension ``DetectClash``. The base implementation only detects which atoms are within a set threshold from each other. GAUDI extends this basic functionality with some approximative functions based on the distance between the involved atoms.
+
+A *clash* score will be calculated as the overlapping volume of the Van der Waals spheres of the involved atoms, as proposed by :citein:`Eyal2004`, following the expression:
+
+.. math::
+    
+    V_ab = \frac{1}{3} \pi h^2_a(3R_a-h_a) + \frac{1}{3} \pi h^2_b(3R_b - h_b)
+
+, where :math:`h_a = \frac{R^2_b - (d - R_a)^2}{2d}`, :math:`h_b = \frac{R^2_a - (d - R_b)^2}{2d}` if :math:`(d < R_a + R_b)`, and :math:`h_a = h_b = 0`, if :math:`(d \ge R_a + R_b)`.
+
+3.3. Solvent accessible and excluded surface area calculation
+-------------------------------------------------------------
+
+Bla 
+
+3.4. Flexibility of the ligand
+------------------------------
+Mention simulated binary crossover
+
+3.5. Rotamer and mutation retrieving
+------------------------------------
+
+Bla 
+
+3.6. Space exploration and recombination
+----------------------------------------
+
+Bla 
+
+3.7. Ligand building
+--------------------
+
+Bla 
+
+3.8. Input and output files
+---------------------------
+
+Bla 
+
+
+.. raw:: latex
+
+    \bibliographystyle{newapa}
+    \bibliography{/home/jr/Documents/bibtex/GAUDI}
