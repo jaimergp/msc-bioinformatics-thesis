@@ -1,5 +1,6 @@
 #!/bin/bash
-IN="$1"
+cd $(dirname $1)
+IN="$(basename $1)"
 BASE="${IN%.*}"
 OUT="$BASE"_compiled
 rst2latex $IN | 
