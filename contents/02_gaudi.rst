@@ -188,10 +188,17 @@ GAUDI uses YAML-formatted files for both input and output files. The parsing is 
         radius: 10.0
 
     ligand:
+    # if a path is submitted, all combinations will be generated
+        path: /home/jr/x/03__projects/hemocyanin/input_no_subst/
         type: blocks
-        path: /home/jr/x/hyde/mol2/
-        flexible: auto
-        bondto: 2
+        flexibility: 360
+        bondto: 1868
+
+    rotamers:
+        residues: [233, 109]
+        library: dynameomics
+        top: 8
+        mutate: no
 
     objectives:
         - name: Clashes
@@ -200,7 +207,7 @@ GAUDI uses YAML-formatted files for both input and output files. The parsing is 
           weight: -1.0
           test: ligand
           threshold: 0.4
-
+        
         - name: HBonds
           type: hbonds
           weight: 1.0
