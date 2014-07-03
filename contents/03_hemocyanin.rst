@@ -34,49 +34,68 @@ Artificial metalloenzymes seek to combine the specificity of biocatalysts with t
     :height: 200 px
 
     Dative anchoring (A) features xxxxx. Covalent anchoring has been used in XXXX. Supramolecular anchoring relies on covalently 
-    
-1.1 Oxygen transport in invertebrates: hemocyanins
---------------------------------------------------
-Hemocyanins are a family of oxygen-carrier proteins in some invertebrate animals, such as snails, crabs, lobsters or spiders. The transport is achieved thanks to two copper atoms that bind an oxygen molecule. Their oxygen-carrying capabilities often result in comparisons with hemoglobins, though this former family uses iron for the binding. 
 
-Hemoglobins are better carriers than hemocyanins in blood conditions, but hemocyanins outperform hemoglobins at low temperatures and oxygen pressure. This is the reason why they can be regarded as better candidates to inspire artificial oxygenases. Some studies have also pointed out that it has some antitumoral effects on murine models :cite:`Moltedo2006`. 
-
-.. figure:: /home/jr/x/thesis/contents/fig/1nol.png
-    :align: center
-    :height: 200 px
-
-    Hemocyanin features a di-copper centre that reversibly binds a single molecule of oxygen. This depiction shows the oxygenated form of *Limulus polyphemus*' hemocyanin (PDB: 1NOL, :citein:`Hazes1993`).
-
-1.2 Streptavidin-biotin technology
+1.1 Streptavidin-biotin technology
 ----------------------------------
-Biotin --- also known as vitamin B7 or H --- is the natural ligand of (strept)avidin, and they both make for a well-known couple in biology due to manifesting the strongest non-covalent interaction in nature; the dissociation constant gets up to :math:`K_d \approx 10^{-14}M` :cite:`Green1975`. The complex is also greatly resistant to extreme pH and temperature levels, organic solvents, proteolytic enzymes and other adverse conditions. All of these features make the system an excellent candidate for supramolecular anchoring techniques and biotechnological developments. So far, this has been one of the most successful strategies in the field. 
+Biotin --- also known as vitamin B7 or H --- is the natural ligand of (strept)avidin, and they both make for a well-known couple in biology due to manifesting the strongest non-covalent interaction in nature: the dissociation constant gets up to :math:`K_d \approx 10^{-14}M` :cite:`Green1975`. The complex is also greatly resistant to extreme pH and temperature levels, organic solvents, proteolytic enzymes and other adverse conditions. All of these features make the system an excellent candidate for supramolecular anchoring techniques and biotechnological developments. So far, this has been one of the most successful strategies in the field. 
 
 .. figure:: /home/jr/x/thesis/contents/fig/3pk2_pov.png
     :align: center
     :height: 200 px
 
-
     Ward et al. are actively working on streptavidin-biotin based systems to implement diverse metallogroups. One of their results is an artificial hydrogenase (PDB: 3PK2, :citein:`Ward2011`), in which a catalyst (violet dye) is covalently linked to a biotin (grey dye) inside the streptavidin pocket (brown surface). This way, the biotin acts as an anchor that helps place the catalyst inside the streptavidin scaffold. 
+    
+1.2 Oxygen transport in invertebrates: hemocyanins
+--------------------------------------------------
+Hemocyanins are oxygen-carrier proteins that can be found in some invertebrate animals, such as snails, crabs, lobsters or spiders. The transport is achieved thanks to two copper atoms that reversibly bind an oxygen molecule. Oxygen-binding capabilities of copper often result in comparisons with biological iron, though some differences exist. For example, iron is usually found in tetrapyrrole coordinated compounds, while copper prefers imine-nitrogen atoms. In the case of hemocyanin, its two coppers coordinate to three histidines each, favouring the dioxygen binding in an global singlet electronic configuration.
+
+.. figure:: /home/jr/x/thesis/contents/fig/1nol.png
+    :align: center
+    :height: 200 px
+
+    Hemocyanin features a histidine-coordinated di-copper centre that reversibly binds a single molecule of oxygen. This depiction shows the oxygenated form of *Limulus polyphemus*' hemocyanin (PDB: 1NOL, :citein:`Hazes1993`).
+
+.. figure:: /home/jr/x/thesis/contents/fig/hemocyanin_schem_kiam.png
+    :align: center
+    :height: 200 px
+
+    Oxidation reaction in hemocyanin. Taken from :citein:`Kaim2013`.
+
 
 2. The challenge: an artificial hemocyanin
 ==========================================
-One of the new experiments Ward's group is working in is an artificial hemocyanin, built upon the streptavidin-biotin system. Several wet-lab attempts have been tried, but none of them have succeeded. In order to shed light on the problem, a GAUDI simulation was run based on the following experiment requirements.
+One of the new experiments Ward's group is working in is an artificial hemocyanin, built upon the streptavidin-biotin system in which the imine-nitrogens are supplied by the biotin-anchored linkers. Several wet-lab attempts have been tried, but none of them have succeeded --- it may be due to unexpected hydrophobic interactions between the linkers and streptavidin, as well as insufficient linkers length. In order to shed light on the problem, a GAUDI simulation was run based on the following experiment requirements.
 
-    1. The hemocyanin core shall be placed around the interface of the two hemocyanin subunits.
-    2. It shall be covalently linked to the two biotins that reside in each of the afore-mentioned subunits.
+    1. The hemocyanin core must be placed around the interface region of the two hemocyanin subunits.
+    2. It must be covalently linked to the two biotins that reside in each of the afore-mentioned subunits.
     3. Subsequently, two linkers of unknown length have to be used to connect the biotins with the hemocyanin core.
 
-The problem was implemented in GAUDI following what we have called an *anchor & seek* strategy. This approach consists of a covalent bond restraint on one end of the dynamically constructed ligand and one covalent-suitable distance objective on the other end. The built-in genetic algorithm will then optimize the linkers length and their torsion angles to help the chain reach the other biotin while minimizing the clashes and maximizing hydrogen bond forming and hydrophobic interactions.
+3. Our strategy
+===============
+The problem was implemented in GAUDI following what we call an *anchor & seek* strategy. This approach consists of a covalent bond restraint on one end of the dynamically constructed ligand and one covalent-suitable distance objective on the other end. The built-in genetic algorithm will then optimize the linkers length and their torsion angles to help the chain reach the other biotin while minimizing the clashes and maximizing hydrogen bond forming and hydrophobic interactions.
 
-The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. 
-
-The ``hemocyanin core`` block was built from scratch following a draft provided by Ward (see figure **X**) and then minimized with a standard quantum-mechanics protocol. The resulting structure was then processed and converted into a standard GAUDI-compatible mol2 file. This block was intentionally left rigid and the algorithm did not alter any of its torsion angles. 
+The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. The ``hemocyanin core`` block was sketched in ChemDraw following a draft provided by Ward (see figure **X**) and then QM-minimized with Gaussian09 :cite:`g09` using a BH&HLYP density functional :cite:`Becke1993`, charge +2 and singlet configuration, as suggested by previous studies :cite:`Saito2014,Metz2001`. The resulting structure was then converted into a standard GAUDI-compatible mol2 file, which was intentionally left rigid. 
 
 .. figure:: fig/coreblock.png
     :align: center
     :height: 200 px
 
     From draft to QM-minimized structure, step-by-step.
+
+An initial population of 1000 individuals was created and evolved for 300 generations with a crossover probability of 0.8 and mutation rate of 0.1. Three distances objectives were asked: the free end of the ligand should approach the terminal-N of the biotin in the other subunit to meet a covalent-suitable distance, while each of the side carbons in the N-rings of the copper scaffolds should approach K109 and K233, which may be able to facilitate some kind of additional anchoring to this long chain. An idealization of the final requirements is depicted below.
+
+.. figure:: fig/hemocyanin_objectives.png 
+    :align: center
+    :height: 200 px
+
+
+4. Discussion of results
+========================
+The resulting Pareto front consisted of XXX individuals, of which a selection of X was extracted following these score constrains thanks to GaudiView GUI:
+    
+    - Clashes < XXX
+    - Distance to biotin < XXX
+    - Distance to lysines < XXX
 
 .. raw:: latex
 
