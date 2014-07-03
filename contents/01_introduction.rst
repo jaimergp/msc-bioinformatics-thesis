@@ -10,7 +10,7 @@ Introduction
 1. Molecular Design and Docking: the missing middle ground
 ==========================================================
 
-|
+Methodologic funnel. GAUDI is sitting on the top of the funnel, because it has to deal with a HUGE HUGE search space that comprises more dimensions than a simple docking essay (in which 90% of the leading forces have to do with non-covalent interactions), so some precision must sacrificed in exchange of speed.
 
 2. Current molecular design strategies
 ======================================
@@ -38,3 +38,6 @@ Introduction
 
 |
 
+4. Objectives
+=============
+Anonymous introduction of GAUDI.
