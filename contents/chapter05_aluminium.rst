@@ -35,7 +35,7 @@ Dr. López supplied a set of GRID-optimized systems obtained from a PDB screenin
 
 3. Current techniques in bioinformatics
 =======================================
-This case study can be regarded as a docking problem where the ligand is a single atom of aluminium. However, existent docking solutions rarely accept metals in the input, let alone being the naked ligand. Furthermore, rotameric optimization is usually directed towards hydrogen bond forming and Van der Waals contacts, and avoiding clashes, not towards the discovery of suitable coordination geometries. GOLD does implement this feature but **XXXXXXXXXXXX** :cite:`Ortega-Carrasco2014`, and so does FlexX :cite:`Seebeck2008`, but **XXXXXXXXXXXXXXXXXXXXXX**. Since GAUDI can be easily extended to adopt new objectives and chromosomes, we thought of creating an alternative launcher script that would meet the requirements of this essay.
+This case study can be regarded as a docking problem where the ligand is a single atom of aluminium. However, existent docking solutions rarely accept metals in the input, let alone being the naked ligand. Furthermore, rotameric optimization is usually directed towards hydrogen bond forming and Van der Waals contacts, and avoiding clashes, not towards the discovery of suitable coordination geometries. GOLD does implement this feature but is not optimized to handle them as part of the ligand :cite:`Ortega-Carrasco2014`, and so does FlexX :cite:`Seebeck2008`, but it doesn't support naked metal ions as ligands. Since GAUDI can be easily extended to adopt new objectives and chromosomes, we thought of creating an alternative launcher script that would meet the requirements of this essay.
 
 4. Our strategy
 ===============

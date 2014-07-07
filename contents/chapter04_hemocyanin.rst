@@ -74,7 +74,7 @@ One of the new experiments Ward's group is working in is an artificial hemocyani
 ===============
 The problem was implemented in GAUDI following what we call an *anchor & seek* strategy. This approach consists of a covalent bond restraint on one end of the dynamically constructed ligand and one covalent-suitable distance objective on the other end. The built-in genetic algorithm will then optimize the linkers length and their torsion angles to help the chain reach the other biotin while minimizing the clashes and maximizing hydrogen bond forming and hydrophobic interactions.
 
-The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. The ``hemocyanin core`` block was sketched in ChemDraw following a draft provided by Ward (see figure **X**) and then QM-minimized with Gaussian09 :cite:`g09` using a BH&HLYP density functional :cite:`Becke1993`, charge +2 and singlet configuration, as suggested by previous studies :cite:`Saito2014,Metz2001`. The resulting structure was then converted into a standard GAUDI-compatible mol2 file, which was intentionally left rigid. 
+The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. The ``hemocyanin core`` block was sketched in ChemDraw following a draft provided by Ward (see figure **X**) and then QM-minimized with Gaussian09 :cite:`g09` using a BH&HLYP density functional :cite:`Becke1993`, charge +2 and open-shell singlet configuration, as suggested by previous studies :cite:`Saito2014,Metz2001`. The resulting structure was then converted into a standard GAUDI-compatible mol2 file, which was intentionally left rigid. 
 
 .. figure:: fig/coreblock.png
     :align: center
@@ -82,7 +82,7 @@ The dynamical builder was fed with this overall structure: ``linker - hemocyanin
 
     From draft to QM-minimized structure, step-by-step.
 
-An initial population of 1000 individuals was created and evolved for 300 generations with a crossover probability of 0.8 and mutation rate of 0.1. Three distances objectives were asked: the free end of the ligand should approach the terminal-N of the biotin in the other subunit to meet a covalent-suitable distance, while each of the side carbons in the N-rings of the copper scaffolds should approach K109 and K233, which may be able to facilitate some kind of additional anchoring to this long chain. An idealization of the final requirements is depicted below.
+An initial population of 1000 individuals was created and evolved for 300 generations with a crossover probability of 0.8 and mutation rate of 0.1. Three distances objectives were asked: the free end of the ligand should approach the terminal-N of the biotin in the other subunit to meet a covalent-suitable distance, while each of the side carbons in the N-rings of the copper scaffolds should approach K109 and K233, which may be able to facilitate additional anchoring to help fix the long chain. An idealization of the final requirements is depicted below.
 
 .. figure:: fig/hemocyanin_objectives.png 
     :align: center
@@ -91,16 +91,15 @@ An initial population of 1000 individuals was created and evolved for 300 genera
 
 4. Discussion of results
 ========================
-The resulting Pareto front consisted of XXX individuals, of which a selection of X was extracted following these score constrains thanks to GaudiView GUI:
+The resulting Pareto front consisted of XXX individuals, a selection of which was extracted following these score constrains in GaudiView GUI:
     
     - Clashes < 50 nm³
     - Distance to biotin < 3.0 A
     - Distance to lysines < 5.0 A
 
+
 .. raw:: latex
 
     \newpage
-
     \bibliographystyle{newapa}
-
     \bibliography{bibliography}
