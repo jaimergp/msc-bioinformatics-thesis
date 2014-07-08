@@ -27,7 +27,7 @@ Given a customizable list of objectives, GAUDI will optimize the given compounds
 
 2. The methodology: Genetic exploration with multi-objective capabilities
 =========================================================================
-Most real-life optimization problems comprise several (usually conflicting) objectives, but they tend to focus on just one of them, describing the other ones as restraints. For example, given a cone, one would want to minimize both their total surface and the lateral surface. A first approach would try to fix the total surface and then find the smallest lateral surface, or the other way around. At any case, both strategies wouldn't consider the wide variety of intermediate solutions :cite:`Coello2001`.
+Most real-life optimization problems comprise several (usually conflicting) objectives, but they tend to focus on just one of them, describing the other ones as restraints. For example, given a cone, one would want to minimize both their total surface and the lateral surface. A first approach would try to fix the total surface and then find the smallest lateral surface, or the other way around. At any case, both strategies would not consider the wide variety of intermediate solutions :cite:`Coello2001`.
 
 Molecular design problems belong to this kind of problems. Most of the existent approaches consist of an energy minimization guided by a set of user-provided restraints. However, this strategy may be leaving a lot of the possible solutions out of scope. Why would we want to renounce to any chances of finding the right molecular construction that will solve our problem?
 

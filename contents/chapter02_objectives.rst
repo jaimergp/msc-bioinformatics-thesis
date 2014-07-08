@@ -28,6 +28,6 @@ In fact, during the implementation process of our approach, we realised that it 
 As a result, the main objectives of this dissertation are:
 
 - Designing a multi-objective genetic optimization engine that can face exploring a huge multidimensional space.
-- Implement a lightweight GUI viewer that can handle thousands of structurally sound solutions.
+- Implement a lightweight GUI viewer that can handle thousands of chemically and physically sound solutions.
 - Solve an artificial enzyme design problem by proposing several candidate structures, as discussed in chapter 4.
 - Apply inverse molecular design by optimizing the coordination sphere of an aluminium centre in a series of possible protein binders, as discussed in chapter 5.

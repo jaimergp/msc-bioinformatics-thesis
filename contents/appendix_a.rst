@@ -146,4 +146,4 @@ GAUDI uses YAML-formatted files for both input and output files. The parsing is 
           type: hbonds
           weight: 1.0
 
-The only possible draw-back is that YAML, like Python, has meaningful indentation. This is particularly important in the list of objectives, which is actually a dictionary whose only value is a list (hence the hyphens) of sub-dictionaries. If the indentation is not respected, the parsing won't succeed.
+The only possible draw-back is that YAML, like Python, has meaningful indentation. This is particularly important in the list of objectives, which is actually a dictionary whose only value is a list (hence the hyphens) of sub-dictionaries. If the indentation is not respected, the parsing wo not succeed.

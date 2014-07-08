@@ -29,13 +29,15 @@ Aluminium(III) can coordinate to several different elements, but it particularly
 
 2. The challenge
 ================
-Xabier López (Department of Science & Technology of Polymer, Faculty of Chemistry, UPV/EHU) and coworkers are wondering if both observations can be compatible: does aluminium have some thing to do with amyloid-beta plaque accumulation? This case study tries to shed some light on the matter and discuss the possible results.
+Xabier López[*]_ and coworkers are wondering if both observations can be compatible: does aluminium have some thing to do with amyloid-beta plaque accumulation? This case study tries to shed some light on the matter and discuss the possible results.
+
+.. [*] Department of Science & Technology of Polymer, Faculty of Chemistry, UPV/EHU
 
 Dr. López supplied a set of GRID-optimized systems obtained from a PDB screening essay that looked for observed amyloid-beta structures, resulting in PDB entries 1AMB, 1AMC, 1AML, 1BA4, 1BA6, 1BJB, 1BJC, 1IYT, 1NMJ, 1Z0Q, 2LFM, 2M9R, and 2M9S. However, the GRID protocol used by López et al. only optimized the position of alpha-carbons while looking for energy minima, thus ignoring rotameric alterations and their chemosteric effects. Given the input library, we were asked to find the nearby oxygen-containing residues and optimize their rotameric configuration so they can allocate the aluminium in a feasible coordination geometry. Backbone oxygens were also allowed to participate in the complex, but their position should not be changed in order not to disrupt the tertiary structure of the protein.
 
 3. Current techniques in bioinformatics
 =======================================
-This case study can be regarded as a docking problem where the ligand is a single atom of aluminium. However, existent docking solutions rarely accept metals in the input, let alone being the naked ligand. Furthermore, rotameric optimization is usually directed towards hydrogen bond forming and Van der Waals contacts, and avoiding clashes, not towards the discovery of suitable coordination geometries. GOLD does implement this feature but is not optimized to handle them as part of the ligand :cite:`Ortega-Carrasco2014`, and so does FlexX :cite:`Seebeck2008`, but it doesn't support naked metal ions as ligands. Since GAUDI can be easily extended to adopt new objectives and chromosomes, we thought of creating an alternative launcher script that would meet the requirements of this essay.
+This case study can be regarded as a docking problem where the ligand is a single atom of aluminium. However, existent docking solutions rarely accept metals in the input, let alone being the naked ligand. Furthermore, rotameric optimization is usually directed towards hydrogen bond forming and Van der Waals contacts, and avoiding clashes, not towards the discovery of suitable coordination geometries. GOLD does implement this feature but is not optimized to handle them as part of the ligand :cite:`Ortega-Carrasco2014`, and so does FlexX :cite:`Seebeck2008`, but it does not support naked metal ions as ligands. Since GAUDI can be easily extended to adopt new objectives and chromosomes, we thought of creating an alternative launcher script that would meet the requirements of this essay.
 
 4. Our strategy
 ===============

@@ -64,7 +64,7 @@ Hemocyanins are oxygen-carrier proteins that can be found in some invertebrate a
 
 2. The challenge: an artificial hemocyanin
 ==========================================
-One of the new experiments Ward's group is working in is an artificial hemocyanin, built upon the streptavidin-biotin system in which the imine-nitrogens are supplied by the biotin-anchored linkers. Several wet-lab attempts have been tried, but none of them have succeeded --- it may be due to unexpected hydrophobic interactions between the linkers and streptavidin, as well as insufficient linkers length. In order to shed light on the problem, a GAUDI simulation was run based on the following experiment requirements.
+One of the new experiments Ward's group is working in is an artificial hemocyanin, built upon the streptavidin-biotin system in which the imine-nitrogens are supplied by the biotin-anchored linkers. Several wet-lab attempts have been tried, but none of them have succeeded --- it may be due to unexpected hydrophobic interactions between the linkers and streptavidin, as well as insufficient linkers length. Also, to date, the constructions that has been successful only comprised a single ligand plugged in the cofactor of each monomer. However, this novel idea proposes a bridging structure between the monomers, which further complicates the problem: existent software can barely handle a single covalent interaction, let alone two or more bonds. In order to shed light on the problem, a GAUDI simulation was run based on the following experiment requirements.
 
     1. The hemocyanin core must be placed around the interface region of the two hemocyanin subunits.
     2. It must be covalently linked to the two biotins that reside in each of the afore-mentioned subunits.
