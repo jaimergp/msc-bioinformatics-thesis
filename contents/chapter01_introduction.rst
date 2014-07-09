@@ -14,6 +14,9 @@
 ------------
 Introduction 
 ------------
+primera edition 
+
+
 The so-called small molecule universe (those whose molecular weight is less than 500 Da) is thought to comprise more than :math:`10^{60}` compounds . According to :citein:`Bohacek1996`, only an infinitesimal part of it it's actually explored: one part in :math:`10^{50}`. A recent study by :citein:`Virshup2013` represents that in a visually-appealing work. As depicted in figure 1, the resulting map is mostly white, which means that, despite having synthesized more than 100 million compounds, scientists have been focusing on the same regions over and over. This suggests that if new molecular design approaches are established, new regions would be visited and *brought to life*. A whole new world of possible solutions is simply waiting for us. *not very sure about this last sentence*
 
 .. figure:: fig/uncharted_space.png 
