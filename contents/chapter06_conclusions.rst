@@ -19,8 +19,7 @@ GAUDI has proved to be a valid proof of concept. Simplistic energy calculation t
 Further work
 ============
 
-- Further development of the spatial exploration engine: improve docking results
-- Protein flexibility through normal modes
+- Further development of the spatial exploration engine: improve free docking results, consider protein flexibility through normal modes
 - More objectives: Metal coordination geometries (not just visual aid), inertial axes
 - QM/MM minimization interface from GaudiView: direct refinement from the GUI
 - Performance improvements: parallelization, code refinement

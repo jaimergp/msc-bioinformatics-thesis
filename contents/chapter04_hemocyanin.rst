@@ -33,13 +33,13 @@ Artificial metalloenzymes seek to combine the specificity of biocatalysts with t
     :align: center
     :height: 200 px
 
-    Dative anchoring (A) features xxxxx. Covalent anchoring has been used in XXXX. Supramolecular anchoring relies on covalently 
+    Dative anchoring (A) features **XXXX**. Covalent anchoring has been used in **XXXX**. Supramolecular anchoring relies on covalently **XXXX**. Take this from Victor's PhD.
 
 1.1 Streptavidin-biotin technology
 ----------------------------------
 Biotin --- also known as vitamin B7 or H --- is the natural ligand of (strept)avidin, and they both make for a well-known couple in biology due to manifesting the strongest non-covalent interaction in nature: the dissociation constant gets up to :math:`K_d \approx 10^{-14}M` :cite:`Green1975`. The complex is also greatly resistant to extreme pH and temperature levels, organic solvents, proteolytic enzymes and other adverse conditions. All of these features make the system an excellent candidate for supramolecular anchoring techniques and biotechnological developments. So far, this has been one of the most successful strategies in the field. 
 
-.. figure:: /home/jr/x/thesis/contents/fig/3pk2_pov.png
+.. figure:: /home/jr/x/thesis/contents/fig/3pk2.png
     :align: center
     :height: 200 px
 
@@ -74,13 +74,13 @@ One of the new experiments Ward's group is working in is an artificial hemocyani
 ===============
 The problem was implemented in GAUDI following what we call an *anchor & seek* strategy. This approach consists of a covalent bond restraint on one end of the dynamically constructed ligand and one covalent-suitable distance objective on the other end. The built-in genetic algorithm will then optimize the linkers length and their torsion angles to help the chain reach the other biotin while minimizing the clashes and maximizing hydrogen bond forming and hydrophobic interactions.
 
-The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. The ``hemocyanin core`` block was sketched in ChemDraw following a draft provided by Ward (see figure **X**) and then QM-minimized with Gaussian09 :cite:`g09` using a BH&HLYP density functional :cite:`Becke1993`, charge +2 and open-shell singlet configuration, as suggested by previous studies :cite:`Saito2014,Metz2001`. The resulting structure was then converted into a standard GAUDI-compatible mol2 file, which was intentionally left rigid. 
+The dynamical builder was fed with this overall structure: ``linker - hemocyanin core - linker``. The so-called ``linker`` block could be represented by any of the following compounds: ethane, propane, butane, pentane, hexane, heptane and octane. The ``hemocyanin core`` block was sketched in ChemDraw following a draft provided by Ward (see figure below) and then QM-minimized with Gaussian09 :cite:`g09` using a M06-2X functional (which features a 54% Hartree-Fock exchange), charge +2 and open-shell singlet configuration, as suggested by previous studies :cite:`Saito2014,Metz2001`. The resulting structure was then converted into a standard GAUDI-compatible Mol2 file, which was intentionally left rigid. 
 
-.. figure:: fig/coreblock.png
+.. figure:: fig/hemocyanin-qm-minimization.png
     :align: center
     :height: 200 px
 
-    From draft to QM-minimized structure, step-by-step.
+    Ward's group supplied a draft of the di-copper centre, which was later converted into a standard mol2 file with ChemBio3D. The resulting file was then minimized with Gaussian09 using an M06-2X functional.
 
 An initial population of 1000 individuals was created and evolved for 300 generations with a crossover probability of 0.8 and mutation rate of 0.1. Three distances objectives were asked: the free end of the ligand should approach the terminal-N of the biotin in the other subunit to meet a covalent-suitable distance, while each of the side carbons in the N-rings of the copper scaffolds should approach K109 and K233, which may be able to facilitate additional anchoring to help fix the long chain. An idealization of the final requirements is depicted below.
 
@@ -88,15 +88,18 @@ An initial population of 1000 individuals was created and evolved for 300 genera
     :align: center
     :height: 200 px
 
+    Idealization of required objectives.
 
 4. Discussion of results
 ========================
-The resulting Pareto front consisted of XXX individuals, a selection of which was extracted following these score constrains in GaudiView GUI:
+The resulting Pareto front consisted of **XXX** individuals, a selection of which was extracted following these score constrains in GaudiView GUI:
     
     - Clashes < 50 nm³
     - Distance to biotin < 3.0 A
     - Distance to lysines < 5.0 A
 
+.. figure:: fig/results-hemocyanin.png 
+    :height: 200 px
 
 .. raw:: latex
 

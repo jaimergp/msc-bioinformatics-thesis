@@ -51,7 +51,10 @@ Since each of the 13 PDB entries contained several different poses, which in tot
 
 5. Discussion of results
 ========================
-The Pareto front 
+The Pareto front bla bla bla.
+
+.. figure:: fig/results-aluminium.png 
+	:height: 200 px
 
 .. raw:: latex
 

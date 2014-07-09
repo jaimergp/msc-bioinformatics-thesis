@@ -45,14 +45,12 @@ Main features of GAUDI
 
 1. Hydrogen bonds discovery
 ----------------------------
-
 Possible hydrogen bonds are calculated with the built-in Chimera extension ``FindHBonds``, which in turn is based on the studies by :citein:`Mills1996`. Mills et al surveyed the Cambridge Structural Database to derive real-life information about the distances, angles and atoms implied in ligand-receptor interaction. The implementation in Chimera allows to specify a tolerance threshold for both angle and distance, relaxing the geometrical constraints. By default, these have been set to 20 degrees and 0.4 Angstrom, respectively. 
 
 In the current implementation, it only serves as a qualitative indicator of how many hydrogen bonds could be formed in the current state. Also, a set of *preferred* H-bond-forming atoms can be specified in the input. If the user decides so, it will account for an extra objective that will be maximized. This allows to use the existent literature and knowledge on the system to perform some prioritization on the protein atoms that could be implied in forming a hydrogen bond.
 
 2. Clashes and contacts detection
 ----------------------------------
-
 Both types of interactions are calculated with the same built-in Chimera extension ``DetectClash``. The base implementation only detects which atoms are within a set threshold from each other. GAUDI extends this basic functionality with some approximative functions based on the distance between the involved atoms.
 
 A *contact* score is defined by a 12-6 Lennard-Jones-like expression which takes the form of:

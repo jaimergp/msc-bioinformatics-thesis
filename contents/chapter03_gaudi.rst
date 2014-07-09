@@ -31,8 +31,6 @@ Most real-life optimization problems comprise several (usually conflicting) obje
 
 Molecular design problems belong to this kind of problems. Most of the existent approaches consist of an energy minimization guided by a set of user-provided restraints. However, this strategy may be leaving a lot of the possible solutions out of scope. Why would we want to renounce to any chances of finding the right molecular construction that will solve our problem?
 
-*!# Place cone analogy picture here*
-
 Having multiple objectives implies that the concept of a single "optimum" solution is no longer valid. Instead, multi-objective optimization algorithms usually propose a set of good *trade-offs* between the studied variables :cite:`Coello2001`. This idea is known as *Pareto optimality*, as enunciated by Wilfredo Pareto in his studies of income distribution.
 
 Given a set of candidate solutions, a Pareto improvement is a change that can make at least one solution better off, without worsening the situation of the other candidate solutions. When no further Pareto improvements can be applied on the set, that set is said to be *Pareto optimal*. The so-called *Pareto front* is the set of all the Pareto optimal solutions, and, in principle, all of them are good answers to the problem. With n dimensions or objectives, the Pareto front can be depicted as an hypersurface that hosts the optimal solutions of the hypervolume.
@@ -42,6 +40,11 @@ Finding the true Pareto front can be difficult, but it can be approximated by a 
 As using Pareto optimality criteria usually means working with multiple solutions, it makes sense to use exploration algorithms that can deal with several candidate solutions at once. One of the most common choices are genetic algorithms (GA). GAs are part of evolutionary algorithms, which, as their name states, are heavily inspired by Darwin's evolution theory. In fact, they take a lot of the nomenclature from it. For example, a candidate solution is called *individual*, whose terms, variables or parameters are named *genes* or *chromosomes*. The base idea is to expose the candidate solutions to an evolutionary simulation, in which the fitness of the individuals is determined by an evaluation function that runs the optimization process. 
 
 A simple GA starts by generating a random set of *individuals*, the so-called initial *population*. Then, that population is exposed to a series of evolutionary operators, such as gene mutation, chromosome recombination or, in some approaches, migration. As a result, a new set of individuals is produced by the parent population. Some of them will be *fitter* than their preceding counterparts, some of them not. That's why all of them are tested by the evaluation function, which will return their *fitness* in the form of a score. Only the fittest individuals will be allowed to continue in the solutions pool or, in biological terms, *selected* to take part in the next *generation*.
+
+.. figure:: fig/ga.png 
+	:height: 200 px 
+
+	Genetic Algorithms simulate evolution in a randomly-generated population of possible solutions. Each generation, the best solutions are selected and allowed to exchange and mutate their terms, thus contributing to improve the overall fitness of the population. After a number of generations, a set of good-enough individuals is usually found. In this example, we are trying to generate a white circle (RGB-coded as 255,255,255) from a population of randomly-coloured circles by maximizing the sum of the colour indices. One of the first consequences of the simulated evolution is the loss of the black circles (RGB-coded as 0,0,0), which do not contribute to getting to the white colour. Soon enough, the results become apparent and the circles begin to show lighter colours. After n generations, the first white circle is found and, probably, after enough iterations, the whole population would be white.
 
 After a few generations, the population will have evolved towards a reasonable set of solutions that approximate the Pareto optimal front. As the number of objectives increases, it becomes harder to accurately reconstruct the true Pareto front. Furthermore, it can consist of hundreds of solutions. To determine which one the researcher is really looking for, a scalarization technique must be applied --- after all, only a section of the hypersurface might be necessary. Of all the possible approaches, weighted sums are one of the most common due to their simplicity, but also encompasses a few limitations, such as knowing the importance and precedence of the different objectives beforehand :cite:`Hwang1979`. As GAUDI mixes energetic, geometric and chemobiological criteria together, this cannot be anticipated easily; instead, GAUDI returns the whole Pareto front, leaving the decision up to the researcher's own criterion and the visual advice provided by Chimera and GaudiView, GAUDI's accompanying GUI tool.
 
@@ -82,6 +85,11 @@ As previously stated, multi-objective optimization processes often generate more
 Furthermore, the GUI tool includes multiple sorting and filtering utilities to help discern the adequate portion of the Pareto hypersurface. In some complex cases, the set of solutions may not include what the researcher would call a *perfect solution*, but he or she may be able to identify a *pretty good one* if some trade-offs are applied. Instead of performing another run, GaudiView allows to parse the whole Pareto front and retrieve the most promising results effortlessly.
 
 Last but not least, a number of goodies have been included to add special visual support in some specific cases. GaudiView provides effective integration channels with some powerful built-in tools of UCSF Chimera, such as the Metal Geometry utility or the MMTK minimizer. This premium features open the doors to a vertical integrative platform where the researcher would be able to obtain reasonably sound solutions by simply writing a list of objectives.
+
+.. figure:: fig/gaudiview_gui.png 
+	:height: 200 px 
+
+	GaudiView is a graphic user interface that helps explore the Pareto front of candidate solutions. It features multi-sorting and multi-filtering capabilities and can handle thousands of files thanks to a lazy-loading implementation that drastically reduces the needed amount of RAM.
 
 .. raw:: latex
 
