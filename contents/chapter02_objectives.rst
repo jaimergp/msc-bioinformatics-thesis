@@ -19,7 +19,7 @@
 
 The current state of the art in molecular design software shows that available programs are very good at handling certain search spaces, but cannot face the complexities that arise from combining some of them. Some of them would take too long to give back an answer, while others would lack the means to provide a reasonable way to do it without hacking some parts of it.
 
-In response to the demands of the chemobiological design community, a novel platform was designed to help address these issues. The results of my Masters in Science has been named after the famous Catalonian architect, Antoni Gaudí. **GAUDI** stands for **G**\ enetic **A**\ lgorithms for **U**\ niversal **D**\ esign **I**\ nference. It consists of a novel platform that aims to satisfy a increasingly demanding area in molecular design: artificial chemobiological systems. It does so by providing the researchers with a powerful multi-objective optimization engine to explore the huge search space that chemobiological design problems usually present.
+In response to the demands of the chemobiological design community, a new tool was designed to help address these issues. The results of my Masters in Science has been named after the famous Catalonian architect, Antoni Gaudí. **GAUDI** stands for **G**\ enetic **A**\ lgorithms for **U**\ niversal **D**\ esign **I**\ nference. It consists of a novel platform that aims to satisfy a increasingly demanding area in molecular design: artificial chemobiological systems. It does so by providing the researchers with a powerful multi-objective optimization engine to explore the huge search space that chemobiological design problems usually present.
 
 In order to demonstrate the strengths of GAUDI, a complex artificial system designed by Thomas Ward was chosen. This artificial hemocyanin uses a streptavidin-biotin scaffold to support an oxygen-binding di-copper centre. The system made for a solid challenge since it simultaneously demanded to solve a docking problem, handling a transition metal and designing an adequate set of linkers. This required to develop several modules from scratch, such a dynamical molecule builder, a graphic user interface or a Van-der-Waals screening engine.
 
@@ -28,6 +28,6 @@ In fact, during the implementation process of our approach, we realised that it 
 As a result, the main objectives of this dissertation are:
 
 - Designing a multi-objective genetic optimization engine that can face exploring a huge multidimensional space.
-- Implement a lightweight GUI viewer that can handle thousands of chemically and physically sound solutions.
+- Implement a lightweight GUI viewer that can help examine thousands of chemically and physically sound solutions.
 - Solve an artificial enzyme design problem by proposing several candidate structures, as discussed in chapter 4.
 - Apply inverse molecular design by optimizing the coordination sphere of an aluminium centre in a series of possible protein binders, as discussed in chapter 5.
