@@ -1,0 +1,208 @@
+\chapter{Introduction}
+
+
+%___________________________________________________________________________
+
+\section*{\phantomsection%
+  1.1. The first steps%
+  \addcontentsline{toc}{section}{1.1. The first steps}%
+  \label{the-first-steps}%
+}
+
+Great part of the progress of humankind has been linked to the discovery of new materials, alloys or compounds. When molecules and atoms were not fully understood, we had to rely on fortunate events of serendipity and trial and error essays. However, as new challenges arise, being lucky is no longer an acceptable resource, and more rational approaches are required. One of our best attempts at solving these challenges is molecular design, the art of rationally creating new compounds to satisfy a given set of target properties.
+
+Some of the first cases of success at creating new materials cannot be considered examples of molecular design, such as the first artificial dye (Perkin, 1856), or nitrocellulose (Chardonnet, 1889). More rational strategies were used as early as in XIX century, when trying to reproduce the properties of natural rubber by developing synthetic elastomers \DUrole{cite}{rubber}. However, when we hear about molecular design, most of us first think of drug design, which focuses on the discovery or generation of new medications that can have a clinical effect based on prior knowledge of the biological target or the characterization of active compounds of therapeutic herbs. It usually comprises the generation of new derivatives of existent compounds that are later screened to assess their biological effect. To do so, traditional drug designers apply random chemical substitutions or combinatorial chemistry techniques.
+
+However, this kind of essays do not really do \emph{rational design}, but \emph{elucidation}. In fact, they can be regarded as systematized attempts of benefiting from the aforementioned mere chance that expect that the solution will be among already characterized compounds. An alternative approach called \emph{fragment based design} partially overcomes this limitation by the random combination of several small building blocks. While this approach does expand the visited chemical space, it still resorts to the aforementioned chance. Unfortunately, the success rate of combinatorial strategies has been very limited and, to date, only one drug fully produced \emph{de novo} using these techniques has been approved by the FDA and the EMA: sorafenib, a multi-kinase inhibitor \DUrole{cite}{Newman2012}. 
+
+More specifically, the reasons behind this reduced success rate have been suggested to do with low diversity and limited exploration of the chemical space \DUrole{cite}{Feher2002}. For example, the so-called small molecule universe (SMU), which accounts for all the synthetically feasible compounds under 500 Dalton, is thought to comprise more than $10^{60}$ compounds. Although according to \DUrole{citein}{Bohacek1996} only an infinitesimal part of it it has been actually explored --- less than one part in $10^{50}$. Beratan and coworkers have mapped the small-molecule universe by means of a new computer algorithm called ACSESS (Algorithm for Chemical Space Exploration with Stochastic Search). The result is a representative library of the SMU that consists of $8.9*10^{6}$ structures scattered along a 40-dimensional cartesian space whose axes are based on Moreau-Broto autocorrelation descriptors \DUrole{cite}{Virshup2013} (see figure 1.1).
+\begin{figure}
+\noindent\makebox[\textwidth][c]{\includegraphics[width=0.9\textwidth]{fig/uncharted_space.png}}
+\caption[Unexplored chemical space]{\emph{Stochastic voyages into uncharted chemical space produce a representative library of all possible drug-like compounds} \DUrole{cite}{Virshup2013}.}
+\end{figure}
+
+Figure 1.1 shows that along the first two axes of the principal component analysis of that 40-dimensional chemical space  reveals a map is mostly blank, which means that, despite having synthesized more than 100 million compounds, scientists have been focusing on the same regions over and over (an so has nature). For example, the GDB13 database, an enumerated library of compounds under 13 atoms which is the largest database of chemical structures currently available, only accounts for a strikingly-low 0.07\% of the self-organizing map representation of the SMU. This could suggest that if new molecular design approaches are established, new regions could be visited and \emph{brought to life}.
+
+
+%___________________________________________________________________________
+
+\section*{\phantomsection%
+  1.2. Chemobiology and the chemobiological space%
+  \addcontentsline{toc}{section}{1.2. Chemobiology and the chemobiological space}%
+  \label{chemobiology-and-the-chemobiological-space}%
+}
+
+Creating new molecules and biomolecules stands on a series of physicochemical considerations that include different forms of interactions:
+%
+\begin{quote}
+%
+\begin{itemize}
+
+\item Covalent interactions. The creation of new strong bonds between atoms.
+
+\item Coordination interactions. The use of metal and transition metals.
+
+\item Non-bonding interactions. Van der Waals, dispersive forces, hydrogen bonds, polar interactions.
+
+\end{itemize}
+
+\end{quote}
+
+Chemobiological developments combine all the afore mentioned interactions in a hybrid system that merges chemical compounds and biological moieties in a functional entity, such as in artificial enzymes, biosensors, biomarkers or supra(bio) molecular complexes. The creation of these systems result in a very high dimensionality which existent strategies cannot face easily: all three chemical, biological and conformational axes need to be explored at once (a simplified graphical representation can be seen on figure 1.2).
+%
+\begin{quote}
+%
+\begin{itemize}
+
+\item The \textbf{conformational axis} holds all the possible geometric operations that a set of atoms can experiment, such as global translation and rotation or local torsion, rocking and bouncing. This kind of changes can make structures stable, unstable or metastable.
+
+\item The \textbf{chemical axis} refers to the addition and removal of atoms in a molecule, as well as specific substitution of its functional groups.
+
+\item The \textbf{biological axis} explains residue mutations, and travelling all along the sequence of the species; mainly in its active regions.
+
+\end{itemize}
+
+\end{quote}
+\begin{figure}
+\noindent\makebox[\textwidth][c]{\includegraphics[width=\textwidth]{fig/3d_space.png}}
+\caption[A highly dimensional search space]{The chemobiological space of hybrid chemobiological essays can be studied in terms of three main axes: conformational, chemical and biological variations.}
+\end{figure}
+
+One could argue that the chemical and biological axes are redundant --- after all, biological structures are all about chemistry and, in fact, biological variations can be considered as a functional abstraction of a subset of the chemical space. However, biological modifications are treated separately because the nature of these changes are well described from the biochemical point of view; i.e., a mutation in a given residue can disrupt the structure of an alpha-helix, or a crucial disulfide bond could be broken.
+
+To grasp an idea of the size of this highly dimensional space, we can think of standard docking essays. Although they only explore the conformational axis, they already require a simplified expression of binding energies to help face their search space. On its part, pharmacophore studies add some details from the chemical plane, but they do not handle a lot of biological variations. How could we even think of handling all the three axes simultaneously?
+
+The real situation is even more complex, though. To take full advantage of these hybrid approaches, biotechnologists tend to make use of exotic organometallic centres that bring new kinds of reactivity to the table, as well as heavily modified aminoacids that generate novel structural scaffolds in a biocompatible environment, drastically enlarging the search space. All of this poses a challenge that demands novel strategies which allow explosive exploration of a hypervolume whose size does not allow an accurate representation. In fact, at the moment, both experimental and theoretical communities lack tools that would allow them to even start sketching initial molecular scaffolds.
+
+
+%___________________________________________________________________________
+
+\section*{\phantomsection%
+  1.3. In silico strategies for molecular design%
+  \addcontentsline{toc}{section}{1.3. In silico strategies for molecular design}%
+  \label{in-silico-strategies-for-molecular-design}%
+}
+
+Being able to test if a candidate molecular sketch is an acceptable solution for a given problem without the need of actually synthesizing it is an invaluable asset. Thus, it is not surprising that computer-assisted molecular design (CAMD) is becoming an increasingly demanded area in the field \DUrole{cite}{Hoffer2013,Tang2014,Hoksza2014}. While CAMD have been proved successful in a decent amount of cases \DUrole{cite}{Clark2006,Kubinyi2009}, most extended methods still suffer from the same diversity issues found in combinatorial chemistry, especially when it comes to hybrid disciplines that extend beyond traditional drug design, such as chemobiology.
+
+\subsection*{\phantomsection%
+  1.3.1. Available strategies%
+  \addcontentsline{toc}{subsection}{1.3.1. Available strategies}%
+  \label{tree-ordering-and-statistical-analysis}%
+}
+
+Different strategies have been applied with more or less success in molecular design. While the search space can be huge, it is also discrete. With this in mind, some attempts have gone for exhaustive enumeration, in which a part of the search space is explored sequentially. Though it may seem inefficient, it has produced relevant results in some cases, as proved by \DUrole{citein}{Fink2007}.
+
+Exhaustive enumeration can work well if the constraints are limiting enough to reduce the search space to a feasible portion, but with bigger problems it is no longer the case. One alternative is to classify the enumerated elements in branches so, if the elements of one branch are detected as fruitless, they can be removed at once by pruning that branch. These algorithms are called \emph{Branch and Bound} (BB) and have been implemented successfully in several fragment-based drug designs \DUrole{cite}{Hajduk2007}.
+
+However, the applicability of BB is limited and in some cases stochastic techniques are very much preferred, such as Monte Carlo-like algorithms (MC) \DUrole{cite}{Das2008}, or even evolutionary approaches (EA) --- particularly, genetic algorithms (GA). This former group of strategies are extensively used in docking programs, like GOLD \DUrole{cite}{Jones1997} or AutoDock \DUrole{cite}{Trott2010}. Evolutionary algorithms are a common choice because they deal with several candidate solutions at once, which is also the case in these multi-objective optimization problems. This common partnership will be further detailed in chapter 3.
+
+A recent advance proposes a new paradigm that focus on inverse relationships. Instead of enumerating a series of ligands and testing their fitness to the problem, inverse molecular design rely on optimizing molecular property functionals with respect to a limited number of chosen variables \DUrole{cite}{Huggins2009}.
+
+\subsection*{\phantomsection%
+  1.3.2. The focus of commercial platforms%
+  \addcontentsline{toc}{subsection}{1.3.2. The focus of commercial platforms}%
+  \label{protein-ligand-docking-and-virtual-screening}%
+}
+
+To date, computational strategies in molecular design only focus on reduced dimensions of the chemobiological space. Although the number of available molecular design programs is not little by any means, zero to none can be actually used to deal with all the variables that are relevant to generate chemobiological hybrids. Not even for a mere sketch. Indeed, most are concentrating on aspects related to protein engineering and drug discovery. With the increase of the quality of molecular modelling tools, many commercial packages now offer platform towards both fields --- i.e., Schrodinger LLC offers several commercial packages that could help in these new challenges, such as Biologics Suite or Small-Molecule Drug Discovery Suite \DUrole{cite}{schrodinger}, as well as Accelrys' Materials Studio and Discovery Studio, now part of 3DS' Biovia \DUrole{cite}{accelrys}. 
+
+Freeware projects usually focus on a single application with a less versatile approach that requires custom scripting for more complex projects. Commercial packages do allow more integrative experiments, though their licenses usually have an astronomical price tag, even for the academia. Nonetheless, they can be considered as the reference in the field and offer a sneak peek of the state of the art in that area. Those programs generally focus on simulating three majors, following developed:
+
+
+%___________________________________________________________________________
+
+\subsubsection*{\phantomsection%
+  1.3.2.1. Protein-ligand docking and virtual screening%
+  \addcontentsline{toc}{subsubsection}{1.3.2.1. Protein-ligand docking and virtual screening}%
+  \label{protein-ligand-docking-and-virtual-screening}%
+}
+
+Existing computational procedures used in potein-ligand dockings are dedicated to finding a suitable spatial accommodation of a small ligand inside a protein pocket. This is mainly a conformational problem that is not really aimed at the exploration of the chemical space or the biological space (axis X and Y, figure 1.2). Fully visiting both axes at once is not very common, and if they even do it, existing solutions tend to only consider small slices of that additional dimension. These extra detours are usually performed with a second set of calculations like in virtual screening or approaches based on library search, thus starting with an already biased subspace that could have neglected some good candidates for this second stage.
+
+
+%___________________________________________________________________________
+
+\subsubsection*{\phantomsection%
+  1.3.2.2. Conformational exploring%
+  \addcontentsline{toc}{subsubsection}{1.3.2.2. Conformational exploring}%
+  \label{conformational-exploring}%
+}
+
+The programs mentioned before also feature conformational exploration engines. For example, Schrodinger's Small-Molecule Drug Discovery Suite and Biologics Suite rely on advanced molecular mechanics and molecular dynamics, with implicit or explicit solvents, both for small molecules and macromolecular systems. Accelrys' proposal also rely on molecular dynamics simulations using CHARMm and a GB solvent model. Alternative solutions include the use of Monte Carlo coarse-grain models, such as CABS \DUrole{cite}{Jamroz2013}, or model normal mode-based approaches, such as NMSim \DUrole{cite}{Ahmed2011}.
+
+
+%___________________________________________________________________________
+
+\subsubsection*{\phantomsection%
+  1.3.2.3. Enzyme design%
+  \addcontentsline{toc}{subsubsection}{1.3.2.3. Enzyme design}%
+  \label{enzyme-design}%
+}
+
+Commercial packages now offer bioengineering tools that allow, at most, seeing the effect of a few mutations on the physicochemical properties of the system or the implications on their natural ligand recognition processes, but not for design. Designing an enzyme from scratch is still far from our current possibilities. It would mean being able to accurately predict the folding of a given sequence of residues, one of the main unsolved problems in biochemistry. As of today, scientists have to be content with optimizing already existing proteins. The technique involves screening a protein database to find an adequate starting point and the optimize its active site to allocate a given transition metal through a series of directed evolution cycles. As of today, David Baker \DUrole{cite}{Khersonsky2011,Althoff2012} and Stephen L. Mayo \DUrole{cite}{Privett2012} have been successful at it by using slightly different approaches. These two examples prove that CAMD can actually help in the design of new enzymes, but they also point that the technique is still in development and that several experimental steps are still needed.
+
+
+%___________________________________________________________________________
+
+\section*{\phantomsection%
+  1.4. Limitations of nowadays tools for biochemical design%
+  \addcontentsline{toc}{section}{1.4. Limitations of nowadays tools for biochemical design}%
+  \label{limitations-of-nowadays-tools-for-biochemical-design}%
+}
+
+The building of some artificial chemobiological entities can be described as a complex docking problem where, in addition to standard non-bonded interactions, bonded, covalent interaction as well as combinatorial considerations are necessary. Such aspects are out of the scope of standard molecular modelling tools: while molecular design is closely linked to covalent bonding and metal coordination, a marginally considered aspect in most cases. The following sections will discuss the different limitations found nowadays.
+
+
+%___________________________________________________________________________
+
+\subsection*{\phantomsection%
+  1.4.1 Covalent bonds%
+  \addcontentsline{toc}{subsection}{1.4.1 Covalent bonds}%
+  \label{covalent-bonds}%
+}
+
+Of all the available docking programs, only a few support covalent docking essays. GOLD and, more recently Glide's CovDock \DUrole{cite}{ToledoWarshaviak2014} do provide an option to anchor the ligand to one of the protein atoms, and so does AutoDock, but that's it. If a researcher wanted to try several anchoring points in a branched ligand, he or she would have to mimic all the covalent bonds sequentially, one bond at a time. Let alone looking for possible hydrogen bridges or hydrophobic patches for a given set of atoms at the same time.
+
+Though alternative methods are available, they are not versatile enough to meet our requirements, or rely on modifications on existent programs that tend to be overly complicated \DUrole{cite}{Katritch2007}. A promising new option called CovalentDock was released past year as a modification of the popular AutoDock. This novel program implements a new layer in AutoGrid to help screen the possible acceptors and donors in the protein and the ligand, which results in improved accuracy \DUrole{cite}{Ouyang2013}. However, those programs are purely aimed at dealing with one or two covalent bonds at the most in order to reproduce the mechanism of the few covalent drugs (i.e., AZT). Nothing exists to deal with a random and automatic generation of multiple covalent bonds like those necessary for the design of hybrid biochemical systems, such as small peptides or artificial enzymes.
+
+
+%___________________________________________________________________________
+
+\subsection*{\phantomsection%
+  1.4.2 Metal and coordination bonds%
+  \addcontentsline{toc}{subsection}{1.4.2 Metal and coordination bonds}%
+  \label{metal-and-coordination-bonds}%
+}
+
+GOLD or Glide are docking programs that support metal moieties in the protein but cannot predict how metals --- naked or embedded --- behave in wider systems like organometallic molecules or nanoparticles. Though some attempts have been successful at extending this limitation with a series of tricks, such as substituting the metal elements with dummy atoms, these \emph{hacks} force to consider the first coordination sphere of the metal as a rigid shell \DUrole{cite}{Ortega-Carrasco2014}.
+
+FlexX is another docking program that includes a knowledge-based approach to handle ligands with metallic centres and is able to predict coordination geometries, using that information as part of the docking process \DUrole{cite}{Seebeck2008}. However, one of the challenges in building chemobiological hybrids is using exotic transition metals as an instrumental part of the reactivity.
+
+
+%___________________________________________________________________________
+
+\subsection*{\phantomsection%
+  1.4.3 Conformational exploration of the chemobiological space%
+  \addcontentsline{toc}{subsection}{1.4.3 Conformational exploration of the chemobiological space}%
+  \label{conformational-exploration-of-the-chemobiological-space}%
+}
+
+Dealing with conformational, chemical and biological changes to travel in the chemobiological space is one of the grails in molecular modelling. Nowadays, most docking strategies consider almost of degrees of freedom of the ligand with the still challenging problem of cyclic systems. Moreover, the majority is able to consider some amount of conformational changes of the protein whether local (by including discrete displacement of the amino acids geometries; i.e., rotamers) or global (i.e., normal modes or molecular dynamics).
+
+Actual mutation of protein residues are not that extended in most used software, since the consequences of such a vast change cannot be easily anticipated. Instead, current approaches resort to experimental techniques like directed mutagenesis to generate different protein scaffolds and then feed the program in use with the resulting crystallographic structures.
+
+With respect to the space concerning the ligand, if the problem is simple enough to not require dynamical building, just conformational variations, one could try using a docking protocol, but the researcher would soon find that most of the programs do not support metal ions at all or, if they do, he or she would face awful complications \DUrole{cite}{Ortega-Carrasco2014}. If it does require dynamical construction, i.e., the ligand itself is not given and only a few building blocks and a couple of constraints are given, there is not a single piece of software that can even provide a few tentative sketches of the solutions.
+
+
+%___________________________________________________________________________
+
+\section*{\phantomsection%
+  1.5. Designing novel chemobiological hybrids: the search for an initial sketch%
+  \addcontentsline{toc}{section}{1.5. Designing novel chemobiological hybrids: the search for an initial sketch}%
+  \label{designing-novel-chemobiological-hybrids-the-search-for-an-initial-sketch}%
+}
+
+An example of the most promising fields in chemobiological design is the creation of artificial enzymes that combine well-known biological scaffolds with established industrial catalyst systems, which usually include transition metal centres, thus allowing exotic chemical activities to take place in a biocompatible environment.
+
+As discussed, working on these systems with existent solutions forces the researcher to push the boundaries of the programs to untested situations, usually resorting to workarounds for which the software were not designed to. Avoiding dirty tricks like these and providing a straight-forward platform that can cope with these experiments out of the box are some of the main motivations behind this dissertation. Thus, our objective is to provide a molecular-sketching platform that can deal with all these problems by delivering an easy-to-deploy interface that can respond to commonly asked questions in the molecular design world.

@@ -1,0 +1,60 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Modify the following line to match your school
+% Available options include `Harvard`, `Princeton`, and `NYU`.
+\documentclass[School=UAB]{Dissertate}
+
+\begin{document}
+
+% frontpage and signatures
+\input{frontmatter/personalize}
+\maketitle
+\cleardoublepage
+\abstractpage
+\clearpage
+
+%frontmatter
+\pagenumbering{roman}
+\setcounter{page}{2}
+\tableofcontents
+\clearpage
+% \acknowledgments
+% \cleardoublepage
+
+% actual contents
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[LE]{GAUDI\textsubscript{ASM} - A novel tool for computationally aided molecular design}
+\fancyhead[RO]{\slshape \leftmark}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\onehalfspacing
+
+% include each chapter...
+\include{chapters/01}
+\include{chapters/02}
+\include{chapters/03}
+\include{chapters/04}
+\include{chapters/05}
+\include{chapters/06}
+
+\begin{appendices}
+	\renewcommand\chaptername{Appendix}
+    \include{chapters/a}
+\end{appendices}
+
+\singlespacing
+
+% the back matter
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Listing of figures}
+\cleardoublepage
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{newapa}
+\cleardoublepage
+
+\end{document}

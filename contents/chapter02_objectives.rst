@@ -7,27 +7,20 @@
     \providecommand*\DUrolecite[1]{\citep{#1}}
     \providecommand*\DUrolecitein[1]{\citet{#1}}
 
-============
- Chapter 02
-============
-
-------------
- Objectives
-------------
+==========
+Objectives
+==========
 
 |
 
-The current state of the art in molecular design software shows that available programs are very good at handling certain search spaces, but cannot face the complexities that arise from combining some of them. Some of them would take too long to give back an answer, while others would lack the means to provide a reasonable way to do it without hacking some parts of it.
+The current state of the art in molecular design software shows that available programs are very good at handling certain search spaces, but cannot face the complexities that arise from combining some of them. 
+In response to the demands of the chemobiological design community, the present Master thesis consists of a new tool was designed to help addressing these issues and of two initial tests on its capabilities. 
 
-In response to the demands of the chemobiological design community, a new tool was designed to help address these issues. The results of my Masters in Science has been named after the famous Catalonian architect, Antoni Gaudí. **GAUDI** stands for **G**\ enetic **A**\ lgorithms for **U**\ niversal **D**\ esign **I**\ nference. It consists of a novel platform that aims to satisfy a increasingly demanding area in molecular design: artificial chemobiological systems. It does so by providing the researchers with a powerful multi-objective optimization engine to explore the huge search space that chemobiological design problems usually present.
+As a result, the concrete objectives of this dissertation are: 
 
-In order to demonstrate the strengths of GAUDI, a complex artificial system designed by Thomas Ward was chosen. This artificial hemocyanin uses a streptavidin-biotin scaffold to support an oxygen-binding di-copper centre. The system made for a solid challenge since it simultaneously demanded to solve a docking problem, handling a transition metal and designing an adequate set of linkers. This required to develop several modules from scratch, such a dynamical molecule builder, a graphic user interface or a Van-der-Waals screening engine.
+- Designing a multi-objective genetic optimization engine that can face exploring a huge multidimensional space (chapter 3).
+- Implement a lightweight GUI viewer that can help examine thousands of chemically and physically sound solutions (chapter 3).
+- Initiate a computationally based design of an artificial hemocyanin by proposing several candidate structures (chapter 4).
+- Apply inverse molecular design by optimizing the coordination sphere of an aluminium centre in a series of possible protein binders (chapter 5).
 
-In fact, during the implementation process of our approach, we realised that it was versatile enough to deal with other kind of experiments, too. We could not resist and tried to apply our gained savoir-faire to an additional essay. As a result, chapter 05 shows the extensibility of GAUDI in action by performing a refinement essay of a GRID-minimized experiment. This former case study demonstrates that GAUDI can work just fine with both top-down and bottom-up approaches. 
 
-As a result, the main objectives of this dissertation are:
-
-- Designing a multi-objective genetic optimization engine that can face exploring a huge multidimensional space.
-- Implement a lightweight GUI viewer that can help examine thousands of chemically and physically sound solutions.
-- Solve an artificial enzyme design problem by proposing several candidate structures, as discussed in chapter 4.
-- Apply inverse molecular design by optimizing the coordination sphere of an aluminium centre in a series of possible protein binders, as discussed in chapter 5.

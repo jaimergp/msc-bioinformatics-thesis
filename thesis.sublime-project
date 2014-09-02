@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-			"file_exclude_patterns": ["*.html", "*.sublime*", ".*"]
+			"file_exclude_patterns": ["*.html", "*.sublime*", ".*", "*.pdf"]
 		}
 	]
 }

@@ -1,0 +1,104 @@
+\ProvidesPackage{packages/UAB/style}
+
+% School name and location
+\university{Universitat Autònoma de Barcelona}
+\universitycity{Barcelona}
+\universitystate{Spain}
+
+
+% School color found from university's graphic identity site:
+% http://isites.harvard.edu/icb/icb.do?keyword=k75408&pageid=icb.page392732
+\definecolor{SchoolColor}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
+\definecolor{chaptergrey}{rgb}{0.6471, 0.1098, 0.1882} % for chapter numbers
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=SchoolColor,
+}
+
+% Formatting guidelines found in:
+% http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
+\renewcommand{\frontmatter}{
+	\input{frontmatter/personalize}
+	\maketitle
+	\copyrightpage
+	\abstractpage
+	\tableofcontents
+	% \listoffigures % optional
+	\dedicationpage
+	\acknowledgments
+}
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{fig/logoUAB.jpg} \\
+	\vspace*{\fill}
+	% \vspace{10pt}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{60pt}
+	\textsc{a dissertation presented by\\
+	\theauthor \\
+	\vspace{12pt}
+	and directed by \\
+	Dr. \@advisor \\
+	\vspace{12pt}
+	in fulfillment of the requirements\\
+	for the MSc in \@degree\\
+	\vspace{12pt}
+	in the subject of\\ \@field\\
+	\vspace{12pt}
+	\rule{10mm}{.1pt}\\
+	\vspace{15pt}
+	Group of \@department \\ Faculty of \@faculty \\
+	\vspace{12pt}
+	\@university\\ \@universitycity,\ \@universitystate\\
+	\vspace{12pt}
+	\@degreemonth\ \@degreeyear}
+	\end{center} \vspace*{\fill}
+	\newpage
+}
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\scshape \noindent \small \copyright \small 2014\hspace{3pt}-- \theauthor \\
+	\noindent all rights reserved.
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\abstractpage}{
+	\thispagestyle{empty}
+	\begin{center}
+	\includegraphics[width=0.4\textwidth]{fig/logoUAB.jpg} \\
+	\vspace{80pt}
+	% \vspace{10pt}
+	\Huge \textcolor{SchoolColor}{\thetitle} \normalsize \\
+	\vspace{60pt}
+	\begin{multicols}{2}
+	\textsc{\emph{Author}\\\@author}
+	% \columnbreak
+	\textsc{\emph{Director and tutor}\\ Dr. \@advisor}
+	\end{multicols}
+	\vspace*{\fill}
+	\textsc{\@degreemonth\ \@degreeyear}
+	\end{center}
+}
+
+\newcommand{\dedicationpage}{
+	\newpage \thispagestyle{fancy} \vspace*{\fill}
+	\scshape \noindent \input{frontmatter/dedication}
+	\vspace*{\fill} \newpage \rm
+}
+
+\newcommand{\acknowledgments}{
+	\chapter*{Acknowledgments}
+	\noindent
+	\input{frontmatter/thanks}
+	\vspace*{\fill} \newpage
+}
