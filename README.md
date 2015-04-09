@@ -1,5 +1,5 @@
-GAUDI: Genetic Algorithms for Universal Design Inference
-========================================================
+GAUDIasm: Genetic Algorithms for Universal Design Inference and Atomic Scale Modeling
+=====================================================================================
 
 *By Jaime Rodríguez-Guerra*
 
